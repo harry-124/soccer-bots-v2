@@ -10,6 +10,7 @@ volatile long int oldtime1,c1=0,t1,rpm1,e1,eo1,es1,ed1,kp1=4,kd1=1,ki1=1,pid1,r1
 volatile long int oldtime2,c2=0,t2,rpm2,e2,eo2,es2,ed2,kp2=4,kd2=1,ki2=1,pid2,r2=-30,dir2,rpmo2;
 volatile long int oldtime3,c3=0,t3,rpm3,e3,eo3,es3,ed3,kp3=4,kd3=1,ki3=1,pid3,r3=-30,dir3,rpmo3;
 
+volatile int k,ds;
 
 void setup() 
 {
@@ -21,16 +22,24 @@ void setup()
   attachInterrupt(digitalPinToInterrupt(18), count3, FALLING);
   d.minit();
   Serial.begin(9600);
+  pinMode(7,OUTPUT);
 }
 
 void loop() 
 {
-    d.mspeed(0);
+    ser();
     getspeed();
-    actuate1(-30);
-    actuate3(-30);
-    actuate2(-30);
-    printsp();
+    actuate1(r1);
+    actuate3(r2);
+    actuate2(r3);
+    d.mspeed(ds);
+
+    if(k==1){
+      digitalWrite(7,HIGH);
+    }
+    else{
+      digitalWrite(7,LOW);
+    }
     
     /*if(rpmo1==rpm1) {rpm1=0;m1.mspeed(dir1*255);}
     if(rpmo2==rpm2) {rpm2=0;actuate2(dir2*255);}
@@ -162,4 +171,12 @@ void count3(){
   oldtime3 = millis();
 }
 
-
+void ser()
+{
+  while(!Serial.available());
+  r1=-Serial.readStringUntil('\t').toInt();
+  r2=-Serial.readStringUntil('\t').toInt();
+  r3=-Serial.readStringUntil('\t').toInt();
+  ds=Serial.readStringUntil('\t').toInt();
+  k = Serial.readStringUntil('\n').toInt(); 
+}

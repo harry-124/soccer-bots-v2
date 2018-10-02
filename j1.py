@@ -1,4 +1,10 @@
 import pygame
+import serial
+
+port = input("Enter port number")
+
+com = serial.Serial('/dev/ttyACM'+str(port),9600)
+print("Connected...")
 
 pygame.init()
 
@@ -61,8 +67,9 @@ while done==False:
         w3 = int(127*w3)
 
         print w1,w2,w3,ds,k # can be directly used as rpms
-        
-    clock.tick(60)
+    s= str(w1) + '\t' + str(w2) + '\t' + str(w3) +'\t'+str(ds) +'\t'+str(k) +'\n'
+    com.write(s.encode())    
+    clock.tick(20)
 
     
 pygame.quit ()
