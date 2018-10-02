@@ -1,6 +1,5 @@
 import pygame
 
-
 pygame.init()
 
 done = False
@@ -31,26 +30,41 @@ while done==False:
         
         vx = joystick.get_axis(3)
         vy = joystick.get_axis(4)
-        ds = joystick.get_axis(5)        
+        ds = joystick.get_axis(5)
 
-        vx = (vx/32000) * 0.2 ## value from -0.2 to 0.2
-        vy = (vy/32000) * 0.2 ## value from -0.2 to 0.2    
+        buttons = joystick.get_numbuttons()
+
+        k = joystick.get_button(0) ## 0 or 1 -> kick
+        LB = joystick.get_button(4) ## 0 or 1 -> anti-clockwise rotation
+        RB = joystick.get_button(5) ## 0 or 1 -> clockwise rotation
+
+        if(LB == 0 and RB ==1):
+            wz = 0.07
+        if(LB == 1 and RB ==0):
+            wz = -0.07
+        if( ( LB ==0 and RB == 0 ) or ( LB==1 and RB == 1 ) ):
+            wz = 0
+
+        vx = vx*0.06 ## value from -0.2 to 0.2
+        vy = -vy*0.06 ## value from -0.2 to 0.2    
 
         if ds < 0:
             ds = 0 ## value from 0 to 1
-        ds = ds / 32000
+        ds = int(ds*255)
         
         w1 = ((vx/1.732)/r) - ((vy/3)/r) + ((wz*R)/r)
         w2 = ((vy/1.5)/r) + ((R*wz)/r)
         w3 = ((wz*R)/r) - ((vx/1.732)/r) - ((vy/3)/r)
         
-        buttons = joystick.get_numbuttons()
+        w1 = int(127*w1)
+        w2 = int(127*w2)
+        w3 = int(127*w3)
 
-        A = joystick.get_button(0) ## 0 or 1 -> kick
-        LB = joystick.get_button(4) ## 0 or 1 -> anti-clockwise rotation
-        RB = joystick.get_button(5) ## 0 or 1 -> clockwise rotation
+        print w1,w2,w3,ds,k # can be directly used as rpms
         
-    clock.tick(20)
+    clock.tick(60)
+
+    
 pygame.quit ()
 
 
