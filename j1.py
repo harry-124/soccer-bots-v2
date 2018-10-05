@@ -35,7 +35,9 @@ while done==False:
         axes = joystick.get_numaxes()
         
         vx = joystick.get_axis(3)
+        vx = vx*abs(vx)
         vy = joystick.get_axis(4)
+        vy = vy*abs(vy)
         ds = joystick.get_axis(5)
 
         buttons = joystick.get_numbuttons()
@@ -45,9 +47,9 @@ while done==False:
         RB = joystick.get_button(5) ## 0 or 1 -> clockwise rotation
 
         if(LB == 0 and RB ==1):
-            wz = 0.07
+            wz = -0.1
         if(LB == 1 and RB ==0):
-            wz = -0.07
+            wz = 0.1
         if( ( LB ==0 and RB == 0 ) or ( LB==1 and RB == 1 ) ):
             wz = 0
 
