@@ -1,6 +1,6 @@
-# soccerbots18
 <h1> Soccerbots of 18-19 </h1>
 <br>
+<h4> the j1.py file is the code which runs on the pc and the ardcode.ino is the file which runs on the arduino </h4>
 <br>
 <h2> Work done so far..</h2>
 <br>
@@ -25,6 +25,8 @@
 <p> Fabricate rest of the 3 bots with acrylic based on design of prototype </p>
 <br>
 <p> Ability to control bots independently and ability to switch control of bots through joystick </p>
+<br>
+<p> Add comments to code to make it more understandable </p>
 <br>
 
 <h1> Future Goals </h1>
