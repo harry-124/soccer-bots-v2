@@ -6,16 +6,18 @@
 <br>
 <p> 1 robot fabrication including kicker and dribbler (prototype) </p>
 <br>
-<p> PID control of wheel angular velocities using cheap incremental encoders </p>
+<p> PID control of wheel angular velocities using cheap incremental encoders (basic functional but not perfect)</p>
 <br>
 <p> Inverse kinematic model of robot has been derived and speeds of wheel calibrated </p>
 <br>
-<p> Serial communication to robot over pyserial (sending control over joystick </p>
+<p> Serial communication to robot over pyserial (sending control over joystick) </p>
+<br>
+<p>Implemented xbee and controlled bot through joystick)</p>
 <br>
 
 <h2> Work in progress </h2>
 <br>
-<p>Implementing xbee (Third years)</p>
+<p>bettering the kinematics and control (some bugs are present)</p>
 <br>
 
 <h2> Work to be done by Nov 22</h2>
