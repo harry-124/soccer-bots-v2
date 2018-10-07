@@ -1,6 +1,10 @@
 <h1> Soccerbots of 18-19 </h1>
 <br>
-<h4> the j1.py file is the code which runs on the pc and the ardcode.ino is the file which runs on the arduino </h4>
+<h2> To run bot via serial connection </h2>
+<h4> run j1.py file on the pc and the ardserial.ino is the file which runs on the arduino </h4>
+<br>
+<h2> To run the bot through Xbee comms </h2>
+<h4> Run jxtobot.py on pc and the code ardcode.py on the arduino </h4>
 <br>
 <h2> Work done so far..</h2>
 <br>
