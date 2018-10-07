@@ -7,7 +7,7 @@ XBeeResponse response = XBeeResponse();
 Rx16Response rx16 = Rx16Response();
 
 uint8_t option = 0;
-uint8_t data;
+char data[30];
 SoftwareSerial mySerial(10, 11);
 void setup() {
   mySerial.begin(115200);
@@ -32,8 +32,15 @@ void loop() {
    
     if(rx16.getData(0)){
       digitalWrite(13,HIGH);
-      data  = rx16.getData(0);
-      Serial.write(data);
+      while(rx16.getData(i)){
+        data[i]  = rx16.getData(0);
+        i++;  
+      }
+      data[++i] = '\n';
+      String D(data);
+      
+      
+      Serial.println(data);
     }
     else{
       digitalWrite(13,LOW);
