@@ -70,8 +70,7 @@ if __name__ == "__main__":
             w3 = int(127*w3)
 
             print w1,w2,w3,ds,k # can be directly used as rpms
-            s= str(w1) + '\t' + str(w2) + '\t' + str(w3) +'\t'+str(ds) +'\t'+str(k) +'\n'
-            s = "Hello There"
+            s= str(w1) + ':' + str(w2) + ':' + str(w3) +':'+str(ds) +':'+str(k) +':'
             sent = xbee.SendStr(s.encode())    
             clock.tick(20)
         except KeyboardInterrupt:
