@@ -11,8 +11,8 @@ if __name__ == "__main__":
     pygame.init()
     done = False
 
-    r = 50.760/1000 # metres
-    R = 150.000/1000 # metres
+    r = 50.760/1000 # metres-wheel radius
+    R = 150.000/1000 # metres-bot radius
     wz = 0.5 #rps
 
     clock = pygame.time.Clock()
