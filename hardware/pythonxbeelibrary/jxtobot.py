@@ -13,7 +13,7 @@ if __name__ == "__main__":
 
     r = 50.760/1000 # metres-wheel radius
     R = 150.000/1000 # metres-bot radius
-    wz = 0.5 #rps
+    wz = 0.5 #rps-wheel
 
     clock = pygame.time.Clock()
 
