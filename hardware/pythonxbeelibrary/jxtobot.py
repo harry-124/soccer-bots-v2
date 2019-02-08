@@ -39,7 +39,8 @@ if __name__ == "__main__":
                 vx = vx*abs(vx)
                 vy = joystick.get_axis(4)
                 vy = vy*abs(vy)
-                ds = joystick.get_axis(5)
+                ds = joystick.get_axis(5)#ds-dribbler speed
+                
 
                 buttons = joystick.get_numbuttons()
 
